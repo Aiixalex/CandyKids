@@ -15,6 +15,7 @@ _Bool stop_thread = false;
 _Bool flag[PRODUCER_MAX + CONSUMER_MAX] = {false};
 int turn = 0;
 
+// pthread_mutex_t lock;
 
 double current_time_in_ms(void) {
     struct timespec now;
@@ -38,11 +39,13 @@ void* factory_thread_function(void* param) {
                 turn = (turn + 1) % (PRODUCER_MAX + CONSUMER_MAX);
             }
         }
+        // pthread_mutex_lock(&lock);
 
         bbuff_blocking_insert(candy); // critical section
         stats_record_produced(factory_index);
 
         flag[factory_index] = false;
+        // pthread_mutex_unlock(&lock);
 
         sleep(wait_sec);
     }
@@ -60,6 +63,7 @@ void* kid_thread_function(void* param) {
                 turn = (turn + 1) % (PRODUCER_MAX + CONSUMER_MAX);
             }
         }
+        // pthread_mutex_lock(&lock);
 
         void* extracted_candy = bbuff_blocking_extract();
         if(extracted_candy != NULL) {
@@ -68,6 +72,7 @@ void* kid_thread_function(void* param) {
         }
         
         flag[kid_index + PRODUCER_MAX] = false;
+        // pthread_mutex_unlock(&lock);
 
         srand(time(NULL));
         int wait_sec = rand() % 2;

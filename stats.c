@@ -47,6 +47,7 @@ void stats_display(void) {
     for (int i=0; i<num_factories; i++) {
         if (factory_made[i] != factory_eaten[i]) {
             printf("ERROR: Mismatch between number made and eaten.\n");
+            break;
         }
     }
 }
