@@ -29,16 +29,16 @@ $ ./candykids 5 2 8
 
 ### Main Function
 
-1. **Extract arguments**: Process the arguments passed on the command line.
-2. **Initialize modules**: Do any module initialization.
-3. **Launch factory threads**: Spawn the requested number of candy-factory threads.
-4. **Launch kid threads**: Spawn the requested number of kid threads.
-5. **Wait for requested time**: Call sleep().
-6. **Stop factory threads**: Indicate to the factory threads that they are to finish, and then call join for each factory thread.
-7. **Wait until no more candy**
-8. **Stop kid threads**: For each kid thread, cancel the thread and then join the thread.
-9. **Print statistics**
-10. **Cleanup any allocated memory**
+1. Extract arguments: Process the arguments passed on the command line.
+2. Initialize modules: Do any module initialization.
+3. Launch factory threads: Spawn the requested number of candy-factory threads.
+4. Launch kid threads: Spawn the requested number of kid threads.
+5. Wait for requested time: Call sleep().
+6. Stop factory threads: Indicate to the factory threads that they are to finish, and then call join for each factory thread.
+7. Wait until no more candy
+8. Stop kid threads: For each kid thread, cancel the thread and then join the thread.
+9. Print statistics
+10. Cleanup any allocated memory
 
 ### Stats
 
