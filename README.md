@@ -1,6 +1,6 @@
 # CandyKids
 
-Candy factories generate candy to a bounded buffer which stores candy while kids eat candy from the bounded buffer.
+A program that candy factories generate candy to a bounded buffer while kids eat candy from the bounded buffer.
 
 Candykids program uses the producer-consumer solution to manage access to a bounded buffer storing candy. One group of threads will model candy factories which generate candy one at a time and insert the candy into the bounded buffer. Another group of threads will model kids which eat candy one a time from the bounded buffer.
 
